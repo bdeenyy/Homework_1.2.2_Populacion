@@ -30,6 +30,7 @@ public class Main {
         Stream<Person> stream2 = persons.stream();
         List<String> education = stream2.filter((p) -> p.getAge() >= 18)
                 .filter((p) -> (p.getSex() == Sex.WOMAN && p.getAge() < 55) || (p.getSex() == Sex.MAN && p.getAge() < 60))
+                .filter(p -> p.getEducation() == Education.HIGHER)
                 .map(Person::getFamily)
                 .sorted()
                 .toList();
